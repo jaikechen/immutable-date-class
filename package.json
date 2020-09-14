@@ -1,0 +1,31 @@
+{
+  "name": "immutable-date-class",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    "date",
+    "immutable"
+  ],
+  "homepage": "https://github.com/jaikechen/immutable-date-class",
+  "bugs": {
+    "url": "https://github.com/jaikechen/immutable-date-class/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaikechen/immutable-date-class.git"
+  },
+  "license": "MIT",
+  "author": "Jaike Chen",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsc"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.3"
+  }
+}
