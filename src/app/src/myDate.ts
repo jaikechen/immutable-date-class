@@ -25,7 +25,7 @@ export function addYears(d:dateType, val:number)
     myDate.setFullYear(myDate.getFullYear() + val)
     return myDate
 }
-export function addMonth(d:dateType, val:number)
+export function addMonths(d:dateType, val:number)
 {
     const myDate = new Date(d)
     myDate.setMonth(myDate.getMonth() + val)
@@ -56,27 +56,12 @@ export function timeEqual(d1: dateType, d2: dateType){
 	return  new Date(d1).getTime() == new Date(d2).getTime()
 }
 
-export function dateEqual(d1: dateType, d2: dateType, d1format:string = undefined, d2format:string = undefined){
+export function dateEqual(d1: dateType, d2: dateType, d1format:string|undefined = undefined, d2format:string|undefined = undefined){
     let date1 = d1format ? parseDate(d1 as string, d1format): new Date(d1)
     let date2 = d2format ? parseDate(d2 as string, d2format): new Date(d2)
-    return date1.toLocaleDateString() === date1.toLocaleDateString()
+    return date1.toLocaleDateString() === date2.toLocaleDateString()
 }
 
-function myParseNumber(s:string, format:string, key:string ) {
-    const start = format.indexOf(key)
-    const length = key.length
-    return +s.substr(start,length)
-}
-
-const isNumber = (c:string) => '0123456789'.indexOf(c) > -1
-
-function parseNumber (s:string, start:number, length:number){
-    let i = start
-    for (; i < start + length && isNumber(s[i]) ; i++){}
-    const val = +s.substr(start,i - start) 
-    for (; i < s.length && !isNumber(s[i]); i++){ }
-    return {val, i}
-}
 export function parseDate (s:string, format:string = 'yyyyMMddhhmmss') {
     const arr = ['yyyy', 'MM', 'dd', 'hh', 'mm', 'ss']
     const indexArr = arr.map((x,i)=>({ key:arr[i],index: format.indexOf(x), val:0}))
@@ -113,4 +98,14 @@ function myToString(n:number, length:number){
         leadNumber *= 10;
     }
     return (leadNumber + n).toString().substr(1)
+}
+
+const isNumber = (c:string) => '0123456789'.indexOf(c) > -1
+
+function parseNumber (s:string, start:number, length:number){
+    let i = start
+    for (; i < start + length && isNumber(s[i]) ; i++){}
+    const val = +s.substr(start,i - start) 
+    for (; i < s.length && !isNumber(s[i]); i++){ }
+    return {val, i}
 }
