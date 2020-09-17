@@ -1,4 +1,4 @@
-# why this hook
+# why this lib
 1. the default javascript/typescript Date is mutable, which is annoying, if you call data.setHour(0), then the original value is missing.
 2. is '9/4/2020' and '2020-09-04' same date? is the following true or false?
 ``` typescript
