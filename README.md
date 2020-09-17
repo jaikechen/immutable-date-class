@@ -1,3 +1,4 @@
+# it doesn't not work with node yet, I will fix it soon
 # why this lib
 1. the default javascript/typescript Date is mutable, which is annoying, if you call myDate.setHour(0), then the original value is missing.
 2. is '9/4/2020' and '2020-09-04' same date? is the following true or false?

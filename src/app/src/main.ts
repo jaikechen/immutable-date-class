@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { addHours, addMinutes, addMonths, addSeconds, addYears, dateEqual, dateToString, getToday, getWorkDays, parseDate, timeEqual } from './myDate';
+import { addHours, addMinutes, addMonths, addSeconds, addYears, dateEqual, dateToString, getToday, getWorkDays, parseDate, timeEqual } from 'immutable-date-lib'
 
 /*
 const date = new Date()

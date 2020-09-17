@@ -3419,6 +3419,11 @@ ignore@^4.0.6:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
   integrity sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==
 
+immutable-date-lib@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/immutable-date-lib/-/immutable-date-lib-0.0.2.tgz#8f44fa1ea6ff191384b3640fa7cebd6cbcfff7e4"
+  integrity sha512-kS80w6u7zOSD4J+le8N9FtHv3YrFKl8BnSi1k866nnqGJkK94trweqZhnBgo1+CjwFZjfKJHQ4OFDotcRD5YuA==
+
 import-fresh@^3.0.0, import-fresh@^3.1.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-3.2.1.tgz#633ff618506e793af5ac91bf48b72677e15cbe66"
