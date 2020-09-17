@@ -1,5 +1,5 @@
 # why this lib
-1. the default javascript/typescript Date is mutable, which is annoying, if you call data.setHour(0), then the original value is missing.
+1. the default javascript/typescript Date is mutable, which is annoying, if you call myDate.setHour(0), then the original value is missing.
 2. is '9/4/2020' and '2020-09-04' same date? is the following true or false?
 ``` typescript
  new Date('9/4/2020').getTime() === new Date('2020-09-04').getTime()
@@ -15,8 +15,7 @@ this package exports a lot of functions, no class, I hope people can resolve the
 # usage
 
 ## dateType
-most of the functions takes a parameter of type dateType 
-date type can be a string, a date or a number
+most of the functions takes a parameter of type dateType. 
 ```typescript
 type dateType = string | number | Date
 ```
@@ -46,13 +45,12 @@ get work day of current week
 console.log(new Date('9/4/2020') === new Date('9/4/2020'))//false
 console.log(timeEqual('9/4/2020','9/4/2020')) //true
 ```
-Date is an object, so it compares reference of the two objects, it returns false
+Date is an object, so it compares reference of the two objects, it returns false;
 the timeEqual function compare date value, it returns true
 
 ## dateEqual
 like timeEqual, but only compares Date Part of Date
 it is time to answer the questions above, 
-
 ```typescript
  new Date('9/4/2020').getTime() === new Date('2020-09-04').getTime()
 ```
@@ -71,7 +69,7 @@ so if you set date format yourself, you can make sure the you get expected date.
 console.log(dateEqual('9/4/2020','2020-9-4','MM/dd/yyyy', 'yyyy-MM-dd'))
 ```
 ## parseDate
-I made this question for 2 reasons,
+I made this function for 2 reasons,
 1. the default new Date() give me different date than I expect, for example, I get string from database in '2020-01-01' format,
 I know it means local date, but javascript default new Date('2020-01-01'), thinks it is iso data. 
 for this example, I will use
