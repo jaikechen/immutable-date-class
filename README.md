@@ -1,4 +1,3 @@
-# it doesn't not work with node yet, I will fix it soon
 # why this lib
 1. the default javascript/typescript Date is mutable, which is annoying, if you call myDate.setHour(0), then the original value is missing.
 2. is '9/4/2020' and '2020-09-04' same date? is the following true or false?
@@ -50,7 +49,7 @@ Date is an object, so it compares reference of the two objects, it returns false
 the timeEqual function compare date value, it returns true
 
 ## dateEqual
-like timeEqual, but only compares Date Part of Date
+like timeEqual, but only compares Date Part of Date<br/>
 it is time to answer the questions above, 
 ```typescript
  new Date('9/4/2020').getTime() === new Date('2020-09-04').getTime()
