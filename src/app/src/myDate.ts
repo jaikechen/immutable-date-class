@@ -79,11 +79,13 @@ export function parseDate (s:string, format:string = 'yyyyMMddhhmmss') {
     return date
 }
 
-export function dateToString(d :Date, format:string = 'yyyy-MM-dd hh:mm:ss') {
+export function dateToString(d :dateType, format:string = 'yyyy-MM-dd hh:mm:ss') {
     const myDate = new Date(d)
     const result = format
         .replace('yyyy', myDate.getFullYear().toString())
+        .replace('MMM', myDate.toLocaleString('default',{month:'long'}))
         .replace('MM', myToString(myDate.getMonth() + 1,2))
+        .replace('ddd', myDate.toLocaleString('default',{weekday:'long'}))
         .replace('dd', myToString(myDate.getDate(),2))
         .replace('hh', myToString(myDate.getHours(),2))
         .replace('mm', myToString(myDate.getMinutes(),2))

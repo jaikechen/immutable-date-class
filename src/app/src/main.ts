@@ -1,6 +1,10 @@
-import { NestFactory } from '@nestjs/core';
 //import { addHours, addMinutes, addMonths, addSeconds, addYears, dateEqual, dateToString, getToday, getWorkDays, parseDate, timeEqual } from 'immutable-date-lib'
-import { addHours, addMinutes, addMonths, addSeconds, addYears, dateEqual, dateToString, getToday, getWorkDays, parseDate, timeEqual } from '../../../dist'
+
+import { dateToString } from "./myDate";
+
+//import { addHours, addMinutes, addMonths, addSeconds, addYears, dateEqual, dateToString, getToday, getWorkDays, parseDate, timeEqual } from '../../../dist'
+console.log(dateToString('8/1/2020', 'ddd, MMM, dd yyyy'))
+/*
 const date = new Date()
 console.log('original date:' + date)
 console.log('after  + 100 seconds : ' + addSeconds(date,100))
@@ -27,3 +31,4 @@ console.log(parseDate('20200904','yyyyMMdd'))
 
 console.log(new Date('20010904'))
 console.log(dateToString(new Date(),'yyyyMMdd'))
+*/

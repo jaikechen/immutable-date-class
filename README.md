@@ -9,9 +9,6 @@ I had a lot of trouble with javascript/typescript Date(), so I decided to put my
 # class vs function
 this package exports a lot of functions, no class, I hope people can resolve their issue in one line of code. 
 
-# Installation via NPM
-```npm i immutable-data-class```
-
 # usage
 
 ## dateType
