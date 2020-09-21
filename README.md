@@ -78,10 +78,16 @@ parseDate('2020-01-01', 'yyyy-MM-dd'), it will give me local date.
 ```typescript
 parseDate('20200101', 'yyyyMMdd'), it will give me local date.
 ```
-
 ## dateToString
 ```typescript
-console.log(dateToString(new Date(),'yyyyMMdd'))
+console.log(dateToString(new Date(),'yyyyMMdd')) //20200916
+console.log(dateToString('8/1/2020', 'ddd, MMM, dd yyyy')) //Saturday, August, 01 2020
 ```
-returns 20200916
-
+yyyy : year
+MM : month
+dd: date
+hh: hour
+mm: minute
+ss: seconds
+MMM: month name, e.g. March, October
+ddd: week of the day
