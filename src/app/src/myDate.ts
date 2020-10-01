@@ -81,15 +81,18 @@ export function parseDate (s:string, format:string = 'yyyyMMddhhmmss') {
 
 export function dateToString(d :dateType, format:string = 'yyyy-MM-dd hh:mm:ss') {
     const myDate = new Date(d)
+    const hour = myDate.getHours()
     const result = format
         .replace('yyyy', myDate.getFullYear().toString())
         .replace('MMM', myDate.toLocaleString('default',{month:'long'}))
         .replace('MM', myToString(myDate.getMonth() + 1,2))
         .replace('ddd', myDate.toLocaleString('default',{weekday:'long'}))
         .replace('dd', myToString(myDate.getDate(),2))
-        .replace('hh', myToString(myDate.getHours(),2))
+        .replace('HH', myToString(hour,2))
+        .replace('hh', myToString(hour === 0 ? 12 : hour %12,2))
         .replace('mm', myToString(myDate.getMinutes(),2))
         .replace('ss', myToString(myDate.getSeconds(),2))
+        .replace('tt', myDate.getHours() >= 12?'pm':'am')
     return result
 }
 

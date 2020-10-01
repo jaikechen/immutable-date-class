@@ -84,10 +84,12 @@ console.log(dateToString(new Date(),'yyyyMMdd')) //20200916
 console.log(dateToString('8/1/2020', 'ddd, MMM, dd yyyy')) //Saturday, August, 01 2020
 ```
 yyyy : year
+MMM: month name, e.g. March, October
 MM : month
+ddd: week of the day
 dd: date
-hh: hour
+HH: hour 24 hour format
+hh: hour 12 hour format
 mm: minute
 ss: seconds
-MMM: month name, e.g. March, October
-ddd: week of the day
+tt: am or pm
