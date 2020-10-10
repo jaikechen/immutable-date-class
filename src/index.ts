@@ -1,1 +1,1 @@
-export {addDays, addHours,addMinutes,addMonths,addSeconds,addYears,dateEqual,dateToString,getToday,getDate,getWorkDays,parseDate,timeEqual} from './app/src/myDate'
+export * from './app/src/dateFunctions'

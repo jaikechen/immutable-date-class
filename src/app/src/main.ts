@@ -1,34 +1,6 @@
-//import { addHours, addMinutes, addMonths, addSeconds, addYears, dateEqual, dateToString, getToday, getWorkDays, parseDate, timeEqual } from 'immutable-date-lib'
-
-import { dateToString } from "./myDate";
-
-//import { addHours, addMinutes, addMonths, addSeconds, addYears, dateEqual, dateToString, getToday, getWorkDays, parseDate, timeEqual } from '../../../dist'
-console.log(dateToString('8/1/2020', 'ddd, MMM, dd yyyy'))
-/*
-const date = new Date()
-console.log('original date:' + date)
-console.log('after  + 100 seconds : ' + addSeconds(date,100))
-console.log('after  + 50 minutes : ' + addMinutes(date,50))
-console.log('after  + 25 hours : ' + addHours(date,25))
-console.log('after  + 1 year : ' + addYears(date,1))
-console.log('today:' + getToday())
-console.log(dateEqual('9/4/2020', '09/04/2020'))
-console.log(parseDate('2020091312000000'))
-console.log(dateToString(parseDate('2020091312000000'),'MM/dd/yyyy'))
-console.log(parseDate('2002/2/1','yyyy/MM/dd'))
-console.log('get work days:' + getWorkDays(new Date()))
-console.log(dateEqual('9/4/2020','2020-9-4','MM/dd/yyyy', 'yyyy-MM-dd'))
-console.log(new Date('9/4/2020') === new Date('9/4/2020'))
-console.log(new Date('9/4/2020') === new Date('9/4/2020'))
-console.log(timeEqual('9/4/2020','9/4/2020'))
-
-console.log(new Date('9/4/2020'))
-console.log(new Date('2020-09-04'))
+import { addDays, dateEqual, parseDate } from './dateFunctions'
+import {immutableDate} from './index'
+console.log(parseDate('20201010090000','yyyyMMddhhmmss',true))
 
 console.log(dateEqual('9/4/2020','2020-9-4','MM/dd/yyyy', 'yyyy-MM-dd'))
-console.log(new Date('2020-09-16').toLocaleString())
-console.log(parseDate('20200904','yyyyMMdd'))
-
-console.log(new Date('20010904'))
-console.log(dateToString(new Date(),'yyyyMMdd'))
-*/
+console.log(dateEqual('9/4/2020','2020-09-04'))
