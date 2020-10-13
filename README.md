@@ -22,6 +22,7 @@ the parseDate()  gives you control of how to convert string to date
 |addSeconds|Date|yes
 |getDatePart|Date|yes
 |dateToString|string|yes
+|toArray|number|yes
 |dateEqual|Boolean|yes
 |timeEqual|Boolean|yes
 |immutableDate|Date|no
@@ -121,3 +122,12 @@ console.log(dateToString('8/1/2020', 'ddd, MMM, dd yyyy')) //Saturday, August, 0
 |mm| minute
 |ss| seconds
 |tt| am or pm
+
+## toArray
+```typescript
+    return [myDate.getFullYear(), myDate.getMonth() +1, myDate.getDate(), myDate.getHours(), myDate.getMinutes(), myDate.getSeconds(), myDate.getMilliseconds()]
+```
+sometime it is convenient to get all the variables in one line code
+```typescript
+    const [year,month,date] = immutableDate().toArray()
+```
