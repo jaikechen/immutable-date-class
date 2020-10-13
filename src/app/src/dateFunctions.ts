@@ -13,6 +13,7 @@ declare global {
         getDatePart():Date
 
         dateToString(format: string): string
+        toArray():number[]
     }
 }
 
@@ -47,6 +48,9 @@ Date.prototype.dateEqual = function (val:dateType, dateFormat:string = undefined
 }
 Date.prototype.timeEqual = function( val:dateType) {
     return timeEqual(this,val)
+}
+Date.prototype.toArray = function (){
+    return toArray(this)
 }
 
 export type dateType = string | number | Date
@@ -133,24 +137,29 @@ export function parseDate(s: string, format: string, isUtc: boolean = false) {
         : new Date(year,month,date,hour,minute,second)
 }
 
+export function toArray(d:dateType){
+    const myDate = new Date(d)
+    return [myDate.getFullYear(), myDate.getMonth() +1, myDate.getDate(), myDate.getHours(), myDate.getMinutes(), myDate.getSeconds(), myDate.getMilliseconds()]
+}
 export function dateToString(d: dateType, format: string = 'yyyy-MM-dd hh:mm:ss') {
     const myDate = new Date(d)
-    const hour = myDate.getHours()
+    const [year,month,date,hour,minute,second] = toArray(myDate)
     const halfHour = hour === 0 ? 12 : hour % 12
     const result = format
-        .replace('yyyy', myDate.getFullYear().toString())
+        .replace('yyyy', year.toString())
         .replace('MMM', myDate.toLocaleString('default', { month: 'long' }))
-        .replace('MM', myToString(myDate.getMonth() + 1, 2))
+        .replace('MM', myToString(month, 2))
         .replace('ddd', myDate.toLocaleString('default', { weekday: 'long' }))
-        .replace('dd', myToString(myDate.getDate(), 2))
+        .replace('dd', myToString(date, 2))
         .replace('HH', myToString(hour, 2))
         .replace('hh', myToString(halfHour, 2))
         .replace('h', halfHour.toString())
-        .replace('mm', myToString(myDate.getMinutes(), 2))
-        .replace('ss', myToString(myDate.getSeconds(), 2))
+        .replace('mm', myToString(minute, 2))
+        .replace('ss', myToString(second, 2))
         .replace('tt', myDate.getHours() >= 12 ? 'pm' : 'am')
     return result
 }
+
 
 function myToString(n: number, length: number) {
     let leadNumber = 1;
