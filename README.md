@@ -25,6 +25,7 @@ the parseDate()  gives you control of how to convert string to date
 |toArray|number|yes
 |dateEqual|Boolean|yes
 |timeEqual|Boolean|yes
+|getTimeSpan|timeSpan|yes
 |immutableDate|Date|no
 |getToday|Date|no
 |parseDate|Date|no
@@ -35,6 +36,17 @@ getToday().addDays(1)
 immutableDate().addDays(1).addHours(1)
 ```
 <b>Directly call new Date().addMinutes(1) will NOT work. </b>
+## time span
+```typescript
+export interface timeSpan{
+    years:number
+    totalMonths:number
+    totalDays:number
+    totalHours:number
+    totalMinutes:number
+    totalSeconds:number
+}
+```
 ## dateType
 most of the functions take parameters of string or date or number. 
 ```typescript

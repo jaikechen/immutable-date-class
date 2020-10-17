@@ -11,6 +11,7 @@ declare global {
         timeEqual(date1: dateType): Boolean
         dateEqual(date1: dateType): Boolean
         getDatePart():Date
+        getTimeSpan(d:dateType): timeSpan
 
         dateToString(format: string): string
         toArray():number[]
@@ -40,6 +41,9 @@ Date.prototype.dateToString = function (format: string) {
     return dateToString(this, format)
 }
 
+Date.prototype.getTimeSpan = function (d:Date){
+    return getTimeSpan(this,d)
+}
 Date.prototype.getDatePart = function(){
     return getDatePart(this)
 }
@@ -54,6 +58,36 @@ Date.prototype.toArray = function (){
 }
 
 export type dateType = string | number | Date
+export interface timeSpan{
+    years:number
+    totalMonths:number
+    totalDays:number
+    totalHours:number
+    totalMinutes:number
+    totalSeconds:number
+}
+export function getTimeSpan(date1:Date, date2:Date){
+    let [d1,d2] = [new Date(date1), new Date(date2)]
+    if (d1 > d2){
+        [d1,d2] = [d2,d1]
+    }
+    const ms = d2.getTime() - d1.getTime()
+    const totalSeconds = ms / 1000
+    let totalMinutes = totalSeconds / 60
+    const totalHours = totalMinutes / 60
+    const totalDays = totalHours / 24
+
+    let years = d2.getFullYear() - d1.getFullYear()
+    if (d1.addYears(years) > d2){
+        years --
+    }
+    let totalMonths = years * 12 + d2.getMonth() - d1.getMonth()
+    if (d1.addMonths(totalMonths)> d2){
+        totalMonths--
+    }
+    const result:timeSpan = {years, totalMonths,totalDays,totalHours,totalMinutes,totalSeconds}
+    return result
+}
 
 export function immutableDate(d:dateType = '') {
     return d? new Date(d):new Date()
