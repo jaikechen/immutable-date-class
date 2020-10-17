@@ -37,6 +37,7 @@ immutableDate().addDays(1).addHours(1)
 ```
 <b>Directly call new Date().addMinutes(1) will NOT work. </b>
 ## time span
+the function getTimeSpan return timeSpan type, it calculates the time span between two times.
 ```typescript
 export interface timeSpan{
     years:number
