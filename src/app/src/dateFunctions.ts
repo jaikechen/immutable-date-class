@@ -178,7 +178,8 @@ export function toArray(d:dateType){
 export function dateToString(d: dateType, format: string = 'yyyy-MM-dd hh:mm:ss') {
     const myDate = new Date(d)
     const [year,month,date,hour,minute,second] = toArray(myDate)
-    const halfHour = hour === 0 ? 12 : hour % 12
+    let halfHour = hour % 12
+    halfHour = halfHour === 0 ?12 :halfHour
     const result = format
         .replace('yyyy', year.toString())
         .replace('MMM', myDate.toLocaleString('default', { month: 'long' }))
