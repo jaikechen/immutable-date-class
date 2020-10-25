@@ -8,6 +8,7 @@ declare global {
         addMinutes(year: number): Date
         addSeconds(year: number): Date
 
+
         timeEqual(date1: dateType): Boolean
         dateEqual(date1: dateType): Boolean
         getDatePart():Date
@@ -15,9 +16,44 @@ declare global {
 
         dateToString(format: string): string
         toArray():number[]
+
+        chainSetFullYear(val:number):Date
+        chainSetMonth(val:number):Date
+        chainSetDate(val:number):Date
+
+        chainSetHours(val:number):Date
+        chainSetMinutes(val:number):Date
+        chainSetSeconds(val:number):Date
+        chainSetMilliseconds(val:number):Date
     }
 }
 
+Date.prototype.chainSetFullYear = function (val:number){
+    return setFullYear(this,val)
+}
+
+Date.prototype.chainSetMonth = function (val:number){
+    return setMonths(this,val)
+}
+Date.prototype.chainSetDate = function (val:number){
+    return setDate(this,val)
+}
+
+Date.prototype.chainSetHours = function (val:number){
+    return setHours(this,val)
+}
+
+Date.prototype.chainSetMinutes = function (val:number){
+    return setMinutes(this,val)
+}
+
+Date.prototype.chainSetSeconds = function (val:number){
+    return setSeconds(this,val)
+}
+
+Date.prototype.chainSetMilliseconds = function (val:number){
+    return setMilliseconds(this,val)
+}
 Date.prototype.addDays = function (val: number) {
     return addDays(this, val)
 }
@@ -99,9 +135,20 @@ export function addSeconds(d: dateType, val: number) {
     return myDate
 }
 
+export function setSeconds(d: dateType,val:number){
+    const date = new Date(d)
+    date.setSeconds(val)
+    return date
+}
+
 export function addMinutes(d: dateType, val: number) {
     const myDate = new Date(d)
     myDate.setMinutes(myDate.getMinutes() + val)
+    return myDate
+}
+export function setMinutes(d: dateType, val: number) {
+    const myDate = new Date(d)
+    myDate.setMinutes(val)
     return myDate
 }
 
@@ -110,19 +157,62 @@ export function addHours(d: dateType, val: number) {
     myDate.setHours(myDate.getHours() + val)
     return myDate
 }
+
+export function setHours(d: dateType, val: number) {
+    const myDate = new Date(d)
+    myDate.setHours(val)
+    return myDate
+}
+
 export function addYears(d: dateType, val: number) {
     const myDate = new Date(d)
     myDate.setFullYear(myDate.getFullYear() + val)
     return myDate
 }
+
+export function setFullYear(d: dateType, val: number) {
+    const myDate = new Date(d)
+    myDate.setFullYear(val)
+    return myDate
+}
+
 export function addMonths(d: dateType, val: number) {
     const myDate = new Date(d)
     myDate.setMonth(myDate.getMonth() + val)
     return myDate
+
 }
+
+export function setMonths(d: dateType, val: number) {
+    console.log(d)
+    console.log(val)
+    const myDate = new Date(d)
+    myDate.setMonth( val)
+    return myDate
+    
+}
+
 export function addDays(d: dateType, val: number): Date {
     const myDate = new Date(d)
     myDate.setDate(myDate.getDate() + val)
+    return myDate
+}
+
+export function setDate(d: dateType, val: number): Date {
+    const myDate = new Date(d)
+    myDate.setDate(val)
+    return myDate
+}
+
+export function addMilliseconds(d: dateType, val: number): Date {
+    const myDate = new Date(d)
+    myDate.setMilliseconds(myDate.getMilliseconds() + val)
+    return myDate
+}
+
+export function setMilliseconds(d: dateType, val: number): Date {
+    const myDate = new Date(d)
+    myDate.setMilliseconds(val)
     return myDate
 }
 

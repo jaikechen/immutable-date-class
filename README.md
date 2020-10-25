@@ -20,6 +20,13 @@ the parseDate()  gives you control of how to convert string to date
 |addHours|Date|yes
 |addMinutes|Date|yes
 |addSeconds|Date|yes
+|chainSetFullYear|Date|yes
+|chainSetMonth|Date|yes
+|chainSetDate|Date|yes
+|chainSetHours|Date|yes
+|chainSetMinutes|Date|yes
+|chainSetSeconds|Date|yes
+|chainSetMilliseconds|Date|yes
 |getDatePart|Date|yes
 |dateToString|string|yes
 |toArray|number|yes
@@ -29,13 +36,27 @@ the parseDate()  gives you control of how to convert string to date
 |immutableDate|Date|no
 |getToday|Date|no
 |parseDate|Date|no
-
+## function chaining
 Some functions are added to the Date Prototype, so you can chain function calls 
 ```
 getToday().addDays(1)
 immutableDate().addDays(1).addHours(1)
 ```
 <b>Directly call new Date().addMinutes(1) will NOT work. </b>
+
+## setDate() vs chainSetDate()
+the default setDate() function of Date returns a number and is not immutable. chainSetDate() reduces 3 line of code to one line.
+- with setDate
+```typescript
+const newDate = new Date(originalDate)
+newDate().setDate(1)
+console.log(newDate)
+```
+- with chainSetDate
+```typescript
+console.log(immutableDate(originalDate).setDate(1))
+```
+
 ## time span
 the function getTimeSpan return timeSpan type, it calculates the time span between two times.
 ```typescript
